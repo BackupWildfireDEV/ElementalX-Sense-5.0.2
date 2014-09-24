@@ -55,6 +55,7 @@ void *return_address(unsigned int level)
 	else
 		return NULL;
 }
+<<<<<<< HEAD
 
 #else /* if defined(CONFIG_FRAME_POINTER) && !defined(CONFIG_ARM_UNWIND) */
 
@@ -63,5 +64,8 @@ void *return_address(unsigned int level)
 #endif
 
 #endif
+=======
+#endif 
+>>>>>>> 40c8fa5... ARM: 8160/1: drop warning about return_address not using unwind tables
 
 EXPORT_SYMBOL_GPL(return_address);
