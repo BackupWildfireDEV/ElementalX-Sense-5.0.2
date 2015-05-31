@@ -2366,7 +2366,7 @@ static int __init mipi_cmd_jdi_renesas_init(void)
 	pinfo.lcd.v_pulse_width = pinfo.lcdc.v_pulse_width;
 
 	pinfo.lcdc.border_clr = 0;      
-	pinfo.lcdc.underflow_clr = 0;        
+	pinfo.lcdc.underflow_clr = 0xff;        
 	pinfo.lcdc.hsync_skew = 0;
 	pinfo.bl_max = 255;
 	pinfo.bl_min = 1;
@@ -2470,7 +2470,7 @@ static int __init mipi_cmd_sharp_init(void)
 	pinfo.lcd.v_pulse_width = pinfo.lcdc.v_pulse_width;
 
 	pinfo.lcdc.border_clr = 0;	
-	pinfo.lcdc.underflow_clr = 0;	
+	pinfo.lcdc.underflow_clr = 0xff;	
 	pinfo.lcdc.hsync_skew = 0;
 	pinfo.bl_max = 255;
 	pinfo.bl_min = 1;
@@ -2575,7 +2575,7 @@ static int __init mipi_video_sharp_init(void)
 	pinfo.lcd.v_pulse_width = 2;
 
 	pinfo.lcdc.border_clr = 0;	
-	pinfo.lcdc.underflow_clr = 0;	
+	pinfo.lcdc.underflow_clr = 0xff;	
 	pinfo.lcdc.hsync_skew = 0;
 	pinfo.bl_max = 255;
 	pinfo.bl_min = 1;
@@ -2672,7 +2672,7 @@ static int __init mipi_video_sony_init(void)
 	pinfo.lcd.v_pulse_width = 2;
 
 	pinfo.lcdc.border_clr = 0;	
-	pinfo.lcdc.underflow_clr = 0;	
+	pinfo.lcdc.underflow_clr = 0xff;	
 	pinfo.lcdc.hsync_skew = 0;
 	pinfo.bl_max = 255;
 	pinfo.bl_min = 1;
@@ -2760,7 +2760,7 @@ static int __init mipi_command_samsung_init(void)
 	pinfo.lcd.v_pulse_width = pinfo.lcdc.v_pulse_width;
 
 	pinfo.lcdc.border_clr = 0;	
-	pinfo.lcdc.underflow_clr = 0;	
+	pinfo.lcdc.underflow_clr = 0xff;	
 	pinfo.lcdc.hsync_skew = 0;
 	pinfo.bl_max = 255;
 	pinfo.bl_min = 1;

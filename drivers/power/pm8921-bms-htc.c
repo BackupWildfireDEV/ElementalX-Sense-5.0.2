@@ -1123,7 +1123,11 @@ static int read_soc_params_raw(struct pm8921_bms_chip *chip,
 			pr_info("%s: Skip adjust_pon_ocv_raw due to ocv_updated_flag=0x%x\n",
 					__func__, ocv_updated_flag);
 
-		last_ocv_uv = raw->last_good_ocv_uv;
+		
+                if (chip->ocv_backup_uv)
+			raw->last_good_ocv_uv = last_ocv_uv = chip->ocv_backup_uv;
+		else
+			last_ocv_uv = raw->last_good_ocv_uv;
 
 		pr_info("%s: last_good_ocv_raw=0x%x, last_good_ocv_uv/ori=%duV/%duV"
 				"ocv_reading_at_100=%x, cc_backup_uv=%d, ocv_backup_uv=%d, last_ocv_uv=%d\n",
@@ -1663,7 +1667,7 @@ EXPORT_SYMBOL(pm8921_bms_get_vsense_avg);
 
 int pm8921_bms_get_battery_current(int *result_ua)
 {
-	int vsense = 0;
+	int vsense;
 
 	if (!the_chip) {
 		pr_err("called before initialization\n");
@@ -3212,7 +3216,7 @@ static int dump_cc_uah(void)
 int prev_cc_uah = 0;
 static int pm8921_bms_suspend(struct device *dev)
 {
-	u64 val = 0;
+	u64 val;
 #if 0 
 	int rc;
 	struct pm8xxx_adc_chan_result result;
@@ -3260,7 +3264,7 @@ static int pm8921_bms_suspend(struct device *dev)
 #define DELTA_RBATT_PERCENT	10
 static int pm8921_bms_resume(struct device *dev)
 {
-	u64 val = 0;
+	u64 val;
 #if 0 
 	struct pm8921_rbatt_params raw;
 	struct pm8921_bms_chip *chip = dev_get_drvdata(dev);
